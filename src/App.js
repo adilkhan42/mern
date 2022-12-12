@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Components/Home"
+import Navbar from './Components/Navbar'
+import About from './Components/About'
+import Contact from './Components/Contact'
+import Signup from './Components/Signup'
+import Login from './Components/Login'
+import Video from './Components/Video';
+import Audio from './Components/Audio';
+import Image from './Components/Image';
+import Ganesh from './Components/Ganesh';
+import ReusableForm from './Components/ReusableForm';
+import Logout from './Components/Logout';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path='/' element={<Navbar />}>
+            {/* <Route path='/navbar' element={<Navbar />} /> */}
+            <Route path='/about' element={<About />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/home' element={<Home />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/audio' element={<Audio />} />
+            <Route path='/video' element={<Video />} />
+            <Route path='/image' element={<Image />} />
+            <Route path='/ganesh' element={<Ganesh />} />
+            <Route path='/logout' element={<Logout />} />
+            {/* <Route path='/reusableForm' element={<ReusableForm />} /> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
 }
 
-export default App;
+export default App
